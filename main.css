@@ -63,7 +63,7 @@ body {
   opacity: 0;
   animation: fadeIn 3s ease-in-out forwards;
   text-align: center;
-  top: 40%;
+  top: 55%;
 }
 @keyframes fadeIn {
   from {
