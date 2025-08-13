@@ -1,5 +1,6 @@
 var audio = document.querySelector("audio");
 var lyrics = document.querySelector("#lyrics");
+const playBtn = document.getElementById("playBtn");
 
 // 🕒 Ajusta estos tiempos a tu canción real
 var lyricsData = [
@@ -54,8 +55,20 @@ function fadeIn() {
 }
 
 // 🔹 Inicia al hacer click en cualquier parte
-document.body.addEventListener("click", () => {
+/*document.body.addEventListener("click", () => {
   audio.play();
+});
+*/
+
+// Evento click en el botón para iniciar música
+playBtn.addEventListener("click", () => {
+  audio.play().then(() => {
+    playBtn.style.display = "none";  // Ocultar botón
+    lastIndex = -1;
+    updateLyrics();  // Iniciar sincronización
+  }).catch(e => {
+    alert("Error al reproducir música: " + e);
+  });
 });
 
 // 🔹 Cuando el audio empiece, arranca la sincronización
